@@ -47,7 +47,6 @@ Every worker node returns **exclusively to the supervisor**. Nodes never hand of
 </p>
 
 ```mermaid
-```mermaid
 flowchart TD
     START([Start]) --> SUP[Supervisor Agent]
 
@@ -61,8 +60,8 @@ flowchart TD
     SOCIAL -->|Return post| SUP
 
     SUP -->|Approved or review limit reached| END([End])
-```
-```
+
+
 
 ---
 
