@@ -60,10 +60,10 @@ flowchart TD
     SOCIAL -->|Return post| SUP
 
     SUP -->|Approved or review limit reached| END([End])
+```
 
 
 
----
 
 ## 🧩 Pipeline Components
 
