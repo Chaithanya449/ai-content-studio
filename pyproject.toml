@@ -1,0 +1,14 @@
+[project]
+name = "basic-multiagent"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "langgraph>=1.2",
+    "langchain>=1.4",
+    "langchain-google-genai>=4.4",
+    "langchain-tavily>=0.2.18",
+    "python-dotenv>=1.2",
+]
+
+[tool.uv]
+link-mode = "copy"
