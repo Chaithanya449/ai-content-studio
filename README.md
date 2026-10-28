@@ -47,24 +47,21 @@ Every worker node returns **exclusively to the supervisor**. Nodes never hand of
 </p>
 
 ```mermaid
+```mermaid
 flowchart TD
-    START([Start Topic]) --> Supervisor{Supervisor Node}
-    
-    Supervisor -->|1. Assign topic| Researcher[Researcher Agent (Tavily Search)]
-    Researcher -->|Research draft| Supervisor
-    
-    Supervisor -->|2. Assign research| Blog[Blog Writer Node (LLM)]
-    Blog -->|Article| Supervisor
-    
-    Supervisor -->|3. Assign article| Social[Social Media Node (LLM)]
-    Social -->|Tweet| Supervisor
-    
-    Supervisor -->|Approved / 2-Review Cap| END([Final Deliverables])
+    START([Start]) --> SUP[Supervisor Agent]
 
-    style Supervisor fill:#38bdf8,stroke:#0284c7,stroke-width:2px,color:#0f172a
-    style Researcher fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px
-    style Blog fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px
-    style Social fill:#f1f5f9,stroke:#94a3b8,stroke-width:1px
+    SUP -->|Research| RES["Researcher Agent<br/>(Tavily Search)"]
+    RES -->|Return results| SUP
+
+    SUP -->|Write article| BLOG["Blog Manager"]
+    BLOG -->|Return draft| SUP
+
+    SUP -->|Create social post| SOCIAL["Social Media Manager"]
+    SOCIAL -->|Return post| SUP
+
+    SUP -->|Approved or review limit reached| END([End])
+```
 ```
 
 ---
